@@ -1,0 +1,202 @@
+<!DOCTYPE html> 
+
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gerador de senha</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        body {
+
+            margin: 0;
+
+            font-family: Arial, sans-serif;
+
+            background: linear-gradient(120deg, #4b0082, #000080);
+
+            color: white;
+
+        }
+
+        .conteudo {
+
+            max-width: 600px;
+
+            margin: 40px auto;
+
+            background: rgba(255, 255, 255, 0.1);
+
+            padding: 20px;
+
+            border-radius: 12px;
+
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+
+        }
+
+        input[type="text"] {
+
+            width: 100%;
+
+            padding: 10px;
+
+            font-size: 1rem;
+
+            border: none;
+
+            border-radius: 8px;
+
+            margin-top: 5px;
+
+        }
+
+        button {
+
+            padding: 5px 12px;
+
+            font-size: 1rem;
+
+            border: none;
+
+            border-radius: 6px;
+
+            background-color: #4b0082;
+
+            color: white;
+
+            cursor: pointer;
+
+        }
+
+        button:hover {
+
+            background-color: #370060;
+
+        }
+
+        .parametro-senha__texto {
+
+            display: inline-block;
+
+            width: 30px;
+
+            text-align: center;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <section class="conteudo">
+
+        <div class="conteudo-titulo">
+
+            <img src="unlock.svg" alt="cadeado fechado">
+
+            <h2 class="titulo-principal">Gerador de senhas</h2>
+
+            <h3 class="titulo-secundario">Gere instantaneamente uma senha aleatória e segura</h3>
+
+        </div>
+
+        <div class="conteudo-senha">
+
+            <label for="senha">Senha</label>
+
+            <input name="senha" type="text" id="campo-senha">
+
+        </div>
+
+        <div class="parametro">
+
+            <h3 class="parametro-titulo">Personalize sua senha</h3>
+
+            <div class="parametro-coluna__senha">
+
+                <div class="parametro-senha">
+
+                    <h4 class="parametro-senha__titulo">Número de caracteres</h4>
+
+                    <div class="parametro-senha-botoes">
+
+                        <button class="parametro-senha__botao" onclick="decrementar()">-</button>
+
+                        <p class="parametro-senha__texto" id="num-caracteres">12</p>
+
+                        <button class="parametro-senha__botao" onclick="incrementar()">+</button>
+
+                    </div>
+
+                </div>
+
+                <div class="parametro-senha">
+
+                    <h4 class="parametro-senha__titulo">Características da senha</h4>
+
+                    <label><input type="checkbox" id="maiusculas" checked> Letras maiúsculas</label><br>
+
+                    <label><input type="checkbox" id="minusculas" checked> Letras minúsculas</label><br>
+
+                    <label><input type="checkbox" id="numeros" checked> Números</label><br>
+
+                    <label><input type="checkbox" id="simbolos"> Símbolos</label><br>
+
+                    <label><input type="checkbox" id="ambigua"> Evitar caracteres ambíguos</label>
+
+                </div>
+
+                <div class="parametro-senha">
+
+                    <h4 class="parametro-senha__titulo">Força da senha</h4>
+
+                    <progress value="0" max="100" id="forca-senha"></progress>
+
+                </div>
+
+            </div>
+
+        </div> 
+
+    </section> 
+
+    <script>
+
+        let caracteres = 12;
+
+        function incrementar() {
+
+            caracteres++;
+
+            document.getElementById("num-caracteres").innerText = caracteres;
+
+        }
+
+        function decrementar() {
+
+            if (caracteres > 4) {
+
+                caracteres--;
+
+                document.getElementById("num-caracteres").innerText = caracteres;
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
+
